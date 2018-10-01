@@ -4,7 +4,10 @@
 </head>
 
 <div>
-  <jda-rich-text-editor [model]="inputHtml" #jdaRTE></jda-rich-text-editor>
+  <jda-rich-text-editor [model]="inputString"
+                        (getUpdatedModelValue)="getUpdatedModelValueEvent($event)"
+
+  ></jda-rich-text-editor>
 </div>
 
 <div>
@@ -14,5 +17,5 @@
 <br><br><br><br><br>
 
 <div>
-  {{outputHtml}}
+  {{outputString}}
 </div>

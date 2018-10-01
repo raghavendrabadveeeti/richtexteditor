@@ -9,6 +9,7 @@ import { QuillEditorComponent } from 'ngx-quill';
 export class JdaRichTextEditorComponent {
 
   @Input('model') private inputText: any;
+  @Output() getUpdatedModelValue = new EventEmitter<any>();
 
   modules = {
     toolbar: [
@@ -23,11 +24,8 @@ export class JdaRichTextEditorComponent {
     ],
   };
 
-  getModel(): any {
-    return this.inputText;
+  updatedModel() {
+    this.getUpdatedModelValue.emit(this.inputText);
   }
 
-  setModel(value: any) {
-    this.inputText = value;
-  }
 }
