@@ -1,8 +1,5 @@
-import { Component, SecurityContext, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { QuillEditorComponent } from 'ngx-quill';
-import { JdaRichTextEditorComponent } from './jda-rich-text-editor/jda-rich-text-editor.component';
+import { Component } from '@angular/core';
+import html2jsonLib from 'html2json';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +11,14 @@ export class AppComponent {
   inputString: string =
     '<h1><span style="color: rgb(230, 0, 0);">Hello World </span></h1><p><br></p><h3><strong style="color: rgb(0, 97, 0);">RichTextEditor demo</strong></h3>';
 
-  outputString: string = '';
+  htmlGeneratedByRTE: string = '';
+  jsonGeneratedByLibrary: string = '';
+  htmlGeneratedByLibrary: string = '';
 
-  viewContent() {
-
-  }
-
-  getUpdatedModelValueEvent(outputString: any) {
-    this.outputString = outputString;
+  getUpdatedModelValueEvent(htmlString: any) {
+    this.htmlGeneratedByRTE = htmlString;
+    this.jsonGeneratedByLibrary = JSON.stringify(html2jsonLib.html2json(this.htmlGeneratedByRTE));
+    this.htmlGeneratedByLibrary = html2jsonLib.json2html(JSON.parse(this.jsonGeneratedByLibrary));
 
   }
 

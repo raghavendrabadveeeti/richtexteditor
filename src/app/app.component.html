@@ -5,17 +5,27 @@
 
 <div>
   <jda-rich-text-editor [model]="inputString"
-                        (getUpdatedModelValue)="getUpdatedModelValueEvent($event)"
+                        (getUpdatedModelValue)="getUpdatedModelValueEvent($event)">
 
-  ></jda-rich-text-editor>
+  </jda-rich-text-editor>
 </div>
 
-<div>
-  <button mat-button (click)="viewContent()">View Secure HTML Content</button>
+<br>
+
+<div><h3> NGX-Quill Generated HTML</h3>
+  {{htmlGeneratedByRTE}}
 </div>
 
-<br><br><br><br><br>
+<br>
 
 <div>
-  {{outputString}}
+  <h3> Converted to JSON string by using html2json library </h3>
+  {{jsonGeneratedByLibrary}}
+</div>
+
+<br>
+
+<div>
+  <h3> Converted to HTML from JSON string by using html2json library </h3>
+  {{htmlGeneratedByLibrary}}
 </div>
