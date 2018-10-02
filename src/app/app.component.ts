@@ -9,7 +9,7 @@ import html2jsonLib from 'html2json';
 export class AppComponent {
 
   inputString: string =
-    '<h1><span style="color: rgb(230, 0, 0);">Hello World </span></h1><p><br></p><h3><strong style="color: rgb(0, 97, 0);">RichTextEditor demo</strong></h3>';
+    '<ul><li><strong class="ql-size-large" style="color: rgb(0, 138, 0);"><em><s><u>Hello World</u></s></em></strong></li></ul><p><br></p><ul><li><a href="https://www.npmjs.com/package/ng-quill" target="_blank" class="ql-size-large">NG-Quill Test for Angular 1.x</a></li></ul>';
 
   htmlGeneratedByRTE: string = '';
   jsonGeneratedByLibrary: string = '';
