@@ -19,13 +19,12 @@
 <br>
 
 <div>
-  <h3> Converted to JSON string by using html2json library </h3>
-  {{jsonGeneratedByLibrary}}
-</div>
-
-<br>
-
-<div>
-  <h3> Converted to HTML from JSON string by using html2json library </h3>
+  <h3>Filtered HTML using DomSanitizer.sanitize()</h3>
   {{htmlGeneratedByLibrary}}
+</div>
+<br>
+<div>
+  <jda-rich-text-editor [model]="htmlGeneratedByLibrary">
+
+  </jda-rich-text-editor>
 </div>
