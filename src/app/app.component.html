@@ -4,7 +4,7 @@
 </head>
 
 <div>
-  <jda-rich-text-editor [model]="inputString"
+  <jda-rich-text-editor [model]="inputString" [readonly]="false"
                         (getUpdatedModelValue)="getUpdatedModelValueEvent($event)">
 
   </jda-rich-text-editor>

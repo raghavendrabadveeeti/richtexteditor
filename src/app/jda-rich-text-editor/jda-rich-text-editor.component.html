@@ -1,8 +1,10 @@
 <div *ngIf="!isEditable()"
      class="viewMode"
      [style.display]="!isEditable() ? 'block' : 'none'">
-  <img class="edit-icon" src="assets/edit.png" height="30px" width="30px" style="cursor:pointer"
-       (click)="showEditor(true)" href="#"/>
+  <img class="edit-icon" src="assets/edit.png" height="30px" width="30px"
+       style="cursor:pointer"
+       *ngIf="!isReadOnly"
+       (click)="showEditor(true)"/>
   <quill-editor
           [modules]="{toolbar: false}"
           [(ngModel)]="inputText"
@@ -14,8 +16,7 @@
      class="editMode"
      [style.display]="isEditable() ?   'block':'none'">
   <img class="view-icon" src="assets/eye.png" height="24px" width="24px" style="cursor:pointer"
-       (click)="showEditor(false)"
-       href="#"/>
+       (click)="showEditor(false)"/>
   <quill-editor
           [modules]="modules"
           [placeholder]="''"
