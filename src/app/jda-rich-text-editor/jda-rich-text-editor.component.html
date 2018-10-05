@@ -1,6 +1,25 @@
-<div>
-  <quill-editor [modules]="modules"
-                [(ngModel)]="inputText"
-                (onContentChanged)="updatedModel()"
-                [style]="{height: '200px'}"></quill-editor>
+<div *ngIf="!isEditable()"
+     class="viewMode"
+     [style.display]="!isEditable() ? 'block' : 'none'">
+  <img class="edit-icon" src="assets/edit.png" height="30px" width="30px" style="cursor:pointer"
+       (click)="showEditor(true)" href="#"/>
+  <quill-editor
+          [modules]="{toolbar: false}"
+          [(ngModel)]="inputText"
+          [placeholder]="''"
+          [readOnly]="true"
+          [style]="{height: '240px'}"></quill-editor>
+</div>
+<div *ngIf="isEditable()"
+     class="editMode"
+     [style.display]="isEditable() ?   'block':'none'">
+  <img class="view-icon" src="assets/eye.png" height="24px" width="24px" style="cursor:pointer"
+       (click)="showEditor(false)"
+       href="#"/>
+  <quill-editor
+          [modules]="modules"
+          [placeholder]="''"
+          [(ngModel)]="inputText"
+          (onContentChanged)="updatedModel()"
+          [style]="{height: '200px'}"></quill-editor>
 </div>

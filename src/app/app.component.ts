@@ -16,6 +16,7 @@ export class AppComponent {
   htmlGeneratedByLibrary: string = '';
 
   getUpdatedModelValueEvent(htmlString: any) {
+    this.inputString = htmlString;
     this.htmlGeneratedByRTE = htmlString;
     this.jsonGeneratedByLibrary = JSON.stringify(html2jsonLib.html2json(this.htmlGeneratedByRTE));
     this.htmlGeneratedByLibrary = html2jsonLib.json2html(JSON.parse(this.jsonGeneratedByLibrary));
