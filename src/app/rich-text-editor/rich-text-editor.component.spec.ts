@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JdaRichTextEditorComponent } from './jda-rich-text-editor.component';
+import { RichTextEditorComponent } from './rich-text-editor.component';
 
 describe('JdaRichTextEditorComponent', () => {
-  let component: JdaRichTextEditorComponent;
-  let fixture: ComponentFixture<JdaRichTextEditorComponent>;
+  let component: RichTextEditorComponent;
+  let fixture: ComponentFixture<RichTextEditorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ JdaRichTextEditorComponent ]
+      declarations: [RichTextEditorComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(JdaRichTextEditorComponent);
+    fixture = TestBed.createComponent(RichTextEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

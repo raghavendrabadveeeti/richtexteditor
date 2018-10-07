@@ -16,12 +16,12 @@ describe('AppComponent', () => {
   it(`should have as title 'jda-rich-text-editor'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('jda-rich-text-editor');
+    expect(app.title).toEqual('rich-text-editor');
   }));
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to jda-rich-text-editor!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to rich-text-editor!');
   }));
 });

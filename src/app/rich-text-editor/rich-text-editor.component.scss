@@ -1,0 +1,27 @@
+.viewMode {
+  background : #E3EDF1;
+  img {
+    position : relative;
+    float    : right;
+    top      : 0px;
+    right    : 0px;
+    height   : 24px;
+    width    : 24px;
+    cursor   : pointer;
+    z-index  : 1000;
+  }
+}
+
+.editMode {
+  background : #E3EDF1;
+  img {
+    position : relative;
+    float    : right;
+    top      : 9px;
+    right    : 5px;
+    height   : 24px;
+    width    : 24px;
+    cursor   : pointer;
+    z-index  : 1000;
+  }
+}

@@ -2,30 +2,34 @@
   <link href="https://cdn.quilljs.com/1.2.2/quill.snow.css" rel="stylesheet"/>
   <link href="https://cdn.quilljs.com/1.2.2/quill.bubble.css" rel="stylesheet"/>
 </head>
+<form [formGroup]="information">
+  <div>
+    <app-rich-text-editor
+            [readonly]="false"
+            [formControl]="information.get('projectDescription').get('richText')"
+            [richTextEditorForm]="information.get('projectDescription')">
 
-<div>
-  <jda-rich-text-editor [model]="inputString" [readonly]="false"
-                        (getUpdatedModelValue)="getUpdatedModelValueEvent($event)">
+    </app-rich-text-editor>
+  </div>
+  <br>
+  <button (click)="onSubmit()">GetRichText</button>
+  <br>
 
-  </jda-rich-text-editor>
-</div>
+  <div><h3> NGX-Quill Generated HTML</h3>
+    {{htmlGeneratedByRTE}}
+  </div>
 
-<br>
+  <br>
 
-<div><h3> NGX-Quill Generated HTML</h3>
-  {{htmlGeneratedByRTE}}
-</div>
+  <div>
+    <h3> Converted to JSON string by using html2json library </h3>
+    {{jsonGeneratedByLibrary}}
+  </div>
 
-<br>
+  <br>
 
-<div>
-  <h3> Converted to JSON string by using html2json library </h3>
-  {{jsonGeneratedByLibrary}}
-</div>
-
-<br>
-
-<div>
-  <h3> Converted to HTML from JSON string by using html2json library </h3>
-  {{htmlGeneratedByLibrary}}
-</div>
+  <div>
+    <h3> Converted to HTML from JSON string by using html2json library </h3>
+    {{htmlGeneratedByLibrary}}
+  </div>
+</form>

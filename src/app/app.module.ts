@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { JdaRichTextEditorComponent } from './jda-rich-text-editor/jda-rich-text-editor.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuillModule } from 'ngx-quill';
+import { RichTextEditorComponent } from './rich-text-editor/rich-text-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    JdaRichTextEditorComponent
+    RichTextEditorComponent
   ],
   imports: [
     BrowserModule,
