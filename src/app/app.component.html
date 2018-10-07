@@ -5,6 +5,7 @@
 <form [formGroup]="information">
   <div>
     <app-rich-text-editor
+            ngDefaultControl
             [readonly]="false"
             [formControl]="information.get('projectDescription').get('richText')"
             [richTextEditorForm]="information.get('projectDescription')">
