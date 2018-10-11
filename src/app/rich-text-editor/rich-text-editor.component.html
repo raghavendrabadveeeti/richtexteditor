@@ -1,20 +1,24 @@
 <div [formGroup]="richTextEditorForm">
-  <div *ngIf="!isEditable()" class="viewMode" [style.display]="!isEditable() ? 'block' : 'none'">
+  <div *ngIf="!isEditable()" class="viewMode"
+       [style.background-color]=backGroundColor
+       [style.display]="!isEditable() ? 'block' : 'none'">
     <img src="/assets/edit.png" *ngIf="!readonly" (click)="showEditor(true)"/>
     <quill-editor
             [modules]="{toolbar: false}"
             formControlName="richText"
             [placeholder]="''"
             [readOnly]="true"
-            [style]="{height: viewModeHeight}"
-    ></quill-editor>
+            [style]="{height: getViewModeHeight(), border:getBorder()}"></quill-editor>
   </div>
-  <div *ngIf="isEditable()" class="editMode" [style.display]="isEditable() ?   'block':'none'">
+  <div *ngIf="isEditable()" class="editMode"
+       [style.background-color]=backGroundColor
+       [style.display]="isEditable() ?   'block':'none'">
     <img src="/assets/eye.png" (click)="showEditor(false)"/>
     <quill-editor
             [modules]="modules"
             [placeholder]="''"
             formControlName="richText"
-            [style]="{height: editModeHeight}"></quill-editor>
+            [style]="{height: getEditModeHeight()}"></quill-editor>
   </div>
+
 </div>

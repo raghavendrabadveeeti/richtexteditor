@@ -6,6 +6,9 @@
   <div>
     <app-rich-text-editor
             ngDefaultControl
+            [backGroundColor]="'#E3EDF1'"
+            [height]=230
+            [removeBorder]="true"
             [readonly]="false"
             [formControl]="information.get('projectDescription').get('richText')"
             [richTextEditorForm]="information.get('projectDescription')">

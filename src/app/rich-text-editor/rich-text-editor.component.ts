@@ -9,14 +9,14 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class RichTextEditorComponent {
 
   @Input() readonly = false;
-  @Input() height = 100;
+  @Input() height: any = 100;
   @Input() inputText: any;
   @Input() richTextEditorForm: any;
+  @Input() backGroundColor: any = '#E3EDF1';
+  @Input() removeBorder: any = false;
 
   modules: any = this.getDefaultModules();
   showToolbar = false;
-  viewModeHeight: string = this.height + 'px';
-  editModeHeight: string = (this.height - 66) + 'px';
 
   static buildRichTextEditorFormGroup() {
     return new FormGroup({
@@ -26,8 +26,26 @@ export class RichTextEditorComponent {
   }
 
   constructor() {
-    this.viewModeHeight = this.height + 'px';
-    this.editModeHeight = (this.height - 66) + 'px';
+  }
+
+  getViewModeHeight() {
+    return this.height + 'px';
+  }
+
+  getEditModeHeight() {
+    return (this.height - 42) + 'px';
+  }
+
+  getBorder() {
+    return (this.removeBorder === true) ? '0' : '1';
+  }
+
+  isEditable(): boolean {
+    return (!this.readonly && this.showToolbar);
+  }
+
+  showEditor(flag: boolean) {
+    this.showToolbar = flag;
   }
 
   getDefaultModules() {
@@ -45,11 +63,4 @@ export class RichTextEditorComponent {
     };
   }
 
-  isEditable(): boolean {
-    return (!this.readonly && this.showToolbar);
-  }
-
-  showEditor(flag: boolean) {
-    this.showToolbar = flag;
-  }
 }
