@@ -1,5 +1,5 @@
 {
-  "name": "jda-rich-text-editor",
+  "name": "rich-text-editor",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

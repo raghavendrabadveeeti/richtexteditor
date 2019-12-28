@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RichTextEditorComponent } from './rich-text-editor.component';
 
-describe('JdaRichTextEditorComponent', () => {
+describe('RichTextEditorComponent', () => {
   let component: RichTextEditorComponent;
   let fixture: ComponentFixture<RichTextEditorComponent>;
 
