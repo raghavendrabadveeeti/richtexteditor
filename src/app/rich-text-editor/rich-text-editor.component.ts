@@ -9,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class RichTextEditorComponent {
 
   @Input() readonly = false;
-  @Input() height = 100;
+  @Input() height = 200;
   @Input() inputText: any;
   @Input() richTextEditorForm: any;
 
