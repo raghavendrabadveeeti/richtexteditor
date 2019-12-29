@@ -8,9 +8,7 @@ WORKDIR common
 
 RUN npm install
 
-COPY richtexteditor .
-
-RUN npm install
+COPY . .
 
 EXPOSE 4200
 
