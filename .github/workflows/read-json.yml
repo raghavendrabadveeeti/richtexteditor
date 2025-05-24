@@ -12,9 +12,6 @@ jobs:
   parse-json:
     runs-on: ubuntu-latest
     steps:
-      - name: Show raw input
-        run: echo " \${{ inputs.environmentProperties }}"
-
       - uses: actions/github-script@v6
         id: parse-json
         with:
