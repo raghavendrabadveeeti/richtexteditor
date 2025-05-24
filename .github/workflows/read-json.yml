@@ -15,15 +15,12 @@ jobs:
       - name: Show raw input
         run: echo " \${{ inputs.environmentProperties }}"
 
-      - name: Save JSON to file and extract `.type`
+      - name: Extract AEP Instance
         id: extract
         run: |
           echo '${{ inputs.environmentProperties }}' > envProps.json
-          cat envProps.json
-
-          AEP_TYPE=$(jq -r '.type' envProps.json)
-          echo "Extracted type: $AEP_TYPE"
-          echo "aep_type=$AEP_TYPE" >> $GITHUB_OUTPUT
+          AEP_INSTANCE=$(jq -r '.type' envProps.json)
+          echo "aep_instance=$AEP_INSTANCE" >> $GITHUB_OUTPUT
 
       - name: Show extracted output
         run: echo " ${{ steps.extract.outputs.aep_type }}"
