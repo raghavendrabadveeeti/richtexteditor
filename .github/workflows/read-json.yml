@@ -13,13 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Show raw input
-        run: echo "Input JSON: ${{ inputs.environmentProperties }}"
+        run: echo " \${{ inputs.environmentProperties }}"
 
       - name: Save JSON to file and extract `.type`
         id: extract
         run: |
           echo '${{ inputs.environmentProperties }}' > envProps.json
-          echo "Saved to envProps.json:"
           cat envProps.json
 
           AEP_TYPE=$(jq -r '.type' envProps.json)
@@ -27,4 +26,4 @@ jobs:
           echo "aep_type=$AEP_TYPE" >> $GITHUB_OUTPUT
 
       - name: Show extracted output
-        run: echo "Final extracted type: ${{ steps.extract.outputs.aep_type }}"
+        run: echo " ${{ steps.extract.outputs.aep_type }}"
