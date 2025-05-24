@@ -16,10 +16,15 @@ jobs:
         id: parse-json
         with:
           script: |
-            const envProps = JSON.parse(core.getInput('environmentProperties'));
-            core.setOutput('type', envProps.type);
+            const envPropsString = process.env.ENVIRONMENT_PROPERTIES;
+            if (!envPropsString) {
+              core.setFailed('ENVIRONMENT_PROPERTIES is empty');
+            } else {
+              const envProps = JSON.parse(envPropsString);
+              core.setOutput('type', envProps.type);
+            }
         env:
-          environmentProperties: ${{ inputs.environmentProperties }}
+          ENVIRONMENT_PROPERTIES: ${{ inputs.environmentProperties }}
 
       - name: Show extracted output
         run: echo " ${{ steps.parse-json.outputs.aep_type }}"
