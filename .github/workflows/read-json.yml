@@ -15,12 +15,14 @@ jobs:
       - name: Show raw input
         run: echo " \${{ inputs.environmentProperties }}"
 
-      - name: Extract AEP Instance
-        id: extract
-        run: |
-          echo '${{ inputs.environmentProperties }}' > envProps.json
-          AEP_INSTANCE=$(jq -r '.type' envProps.json)
-          echo "aep_instance=$AEP_INSTANCE" >> $GITHUB_OUTPUT
+      - uses: actions/github-script@v6
+        id: parse-json
+        with:
+          script: |
+            const envProps = JSON.parse(core.getInput('environmentProperties'));
+            core.setOutput('type', envProps.type);
+        env:
+          environmentProperties: ${{ inputs.environmentProperties }}
 
       - name: Show extracted output
-        run: echo " ${{ steps.extract.outputs.aep_type }}"
+        run: echo " ${{ steps.parse-json.outputs.aep_type }}"
