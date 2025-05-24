@@ -1,0 +1,30 @@
+name: Parse JSON Example
+
+on:
+  workflow_dispatch:
+    inputs:
+      environmentProperties:
+        description: 'JSON string (e.g. {"type":"R&D ecosystem"})'
+        required: true
+        type: string
+
+jobs:
+  parse-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show raw input
+        run: echo "Input JSON: ${{ inputs.environmentProperties }}"
+
+      - name: Save JSON to file and extract `.type`
+        id: extract
+        run: |
+          echo '${{ inputs.environmentProperties }}' > envProps.json
+          echo "Saved to envProps.json:"
+          cat envProps.json
+
+          AEP_TYPE=$(jq -r '.type' envProps.json)
+          echo "Extracted type: $AEP_TYPE"
+          echo "aep_type=$AEP_TYPE" >> $GITHUB_OUTPUT
+
+      - name: Show extracted output
+        run: echo "Final extracted type: ${{ steps.extract.outputs.aep_type }}"
