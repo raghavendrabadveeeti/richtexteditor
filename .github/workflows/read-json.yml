@@ -27,4 +27,4 @@ jobs:
           ENVIRONMENT_PROPERTIES: ${{ inputs.environmentProperties }}
 
       - name: Show extracted output
-        run: echo " ${{ steps.parse-json.outputs.aep_type }}"
+        run: echo " ${{ steps.parse-json.outputs.type }}"
